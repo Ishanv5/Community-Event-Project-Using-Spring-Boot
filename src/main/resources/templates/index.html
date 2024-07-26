@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Community Event Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Community Events</h1>
+    <form action="/search" method="get" class="mb-3">
+        <input type="text" name="keyword" class="form-control" placeholder="Search events">
+    </form>
+    <a href="/events/new" class="btn btn-primary mb-3">Create New Event</a>
+    <div class="list-group">
+        <a th:each="event : ${events}" th:href="@{/events/{id}(id=${event.id})}" class="list-group-item list-group-item-action" th:text="${event.name}"></a>
+    </div>
+</div>
+</body>
+</html>
